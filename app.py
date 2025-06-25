@@ -24,17 +24,12 @@ def home():
 # the 'api_route' function will be executed.
 @app.route('/api')
 def api_route():
-    """
-    This function handles requests to the /api URL.
-    It returns data in JSON (JavaScript Object Notation) format.
-    """
     data = {
-        "message": "This is a basic API response from your Flask app.",
-        "version": "1.0",
-        "timestamp": "2025-06-24T17:44:36Z" # Example timestamp
+        "message": "API response from the MAIN branch!", # DIFFERENT message
+        "version": "1.0",                               # Keep original version
+        "source_branch": "initial_commit",
+        "status_main_branch": "modified"                # ADDED a DIFFERENT new key
     }
-    # jsonify is a Flask helper function that converts a Python dictionary
-    # into a proper JSON response with the correct HTTP headers.
     return jsonify(data)
 
 # This block checks if the script is being run directly (not imported as a module).
