@@ -22,15 +22,21 @@ def home():
 # Define a route for a basic API endpoint.
 # When a user navigates to /api (e.g., http://127.0.0.1:5000/api),
 # the 'api_route' function will be executed.
+# ...
+# app.py (AFTER RESOLVING CONFLICT)
+# ...
 @app.route('/api')
 def api_route():
     data = {
-        "message": "API response from the MAIN branch!", # DIFFERENT message
-        "version": "1.0",                               # Keep original version
+        "message": "API response from merged branches!", # New combined message
+        "version": "1.1",                               # Version from new branch
         "source_branch": "initial_commit",
-        "status_main_branch": "modified"                # ADDED a DIFFERENT new key
+        "status_new_branch": "updated",                 # From new branch
+        "status_main_branch": "modified"                # From main branch
     }
     return jsonify(data)
+# ...
+# ...
 
 # This block checks if the script is being run directly (not imported as a module).
 # If it is, the Flask development server will start.
