@@ -1,7 +1,7 @@
 # app.py
 # This is your main Flask application file
 
-from flask import Flask, jsonify # Import necessary components from the Flask library
+from flask import Flask, jsonify, render_template, request # Import necessary components from the Flask library
 
 # Create an instance of the Flask application
 # __name__ is a special Python variable that gets the name of the current module.
@@ -11,13 +11,13 @@ app = Flask(__name__)
 # Define a route for the home page.
 # When a user navigates to the base URL (e.g., http://127.0.0.1:5000/),
 # the 'home' function will be executed.
+# app.py (modified in master_1)
+# ...
+
 @app.route('/')
 def home():
-    """
-    This function handles requests to the root URL of the web application.
-    It simply returns a string as the response.
-    """
-    return "Welcome to the Flask Project! This is the home page."
+    return render_template('index.html') # Now renders the HTML file
+# ...
 
 # Define a route for a basic API endpoint.
 # When a user navigates to /api (e.g., http://127.0.0.1:5000/api),
